@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="Wrapper">
@@ -16,6 +20,7 @@
       <p class="tab" data-UserWeather>Your Weather</p>
 
       <p class="tab" data-searchWeather>Search Weather</p>
+    </div>
 
       <div class="Weather-container">
 
@@ -24,9 +29,9 @@
         
           <img src="./Assest/location.png" alt="" width="80" height="80" loading="lazy">
 
-          <p>grant location access</p>
+          <p>Grant location access</p>
 
-          <p>Allow Access to get weather Information</p>
+          <div>Allow Access to get weather Information</div>
 
           <button class="btn" data-grantAccess>Grant Access</button>
           
@@ -36,17 +41,17 @@
 
         <!-- Search Weather  -->
          <form class="form-container" data-searchForm>
-
-          <input type="search" placeholder="Search city" data-searchInput>
+        <input  type="input" placeholder="Search City" autocomplete="off" class="input" data-searchInput>
 
           <button class="btn" type="submit">
 
             <img src="./Assest/search.png" alt="" width="20" height="20" loading="eager">
 
           </button>
+         </form>
 
           <!-- Loading Screen Container-->
-           <div class="loading-container">
+           <div class="sub-container loading-container">
 
             <img src="./Assest/loading.gif" alt="" width="150" height="150" loading="lazy">
             
@@ -56,7 +61,7 @@
 
           <!-- Show Weather Info -->
 
-          <div class="user-Info-container">
+          <div class="sub-container user-Info-container">
 
             <div class="name">
 
@@ -67,24 +72,24 @@
             </div>
 
             <!-- Weather Description -->
-            <p data-WeatherDescription></p>
+            <p class="Weather-discription" data-WeatherDescription></p>
  
             <!-- Weather Icon -->
-            <img data-WeatherIcon loading="eager">
+            <img class="WeatherIcon" data-WeatherIcon loading="lazy">
 
             <!-- Temprature -->
-            <p data-temperature></p>
+            <p class="DataTemprature" data-temperature></p>
 
             <!-- 3 Cards Parameter -->
             <p data-temp></p>
 
-            <div class="parameter-container">
+            
 
               <!-- parameter -->
                <div class="parameter-container">
 
                 <!-- Card 1 -->
-                 <div class="parameter">
+                 <div class="sub-container parameter">
 
                   <img src="./Assest/wind.png" alt="" >
 
@@ -94,7 +99,7 @@
 
                  </div>
                  <!-- Card 2 -->
-                 <div class="parameter">
+                 <div class="sub-container parameter">
 
                   <img src="./Assest/humidity.png" alt="" >
 
@@ -105,7 +110,7 @@
                  </div>
 
                  <!-- Card 3 -->
-                 <div class="parameter">
+                 <div class="sub-container parameter">
 
                   <img src="./Assest/cloud.png" alt="" >
 
@@ -122,11 +127,11 @@
 
           </div>
 
-         </form>
+         
 
       </div>
       
-    </div>
+    
 
   </div>
   <script src="script.js"></script>

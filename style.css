@@ -1,6 +1,208 @@
+*,*::after,*::before{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+
+
+:root{
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
+
+}
+
+.Wrapper{
+    width: 100vw;
+    height: 100vh;
+    color: var(--colorLight2);
+    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
+   
+}
+h2{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+}
+.tab-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin:0 auto;
+    margin-top: 4rem;
+    max-width: 550px;
+   
+}
+.tab{
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 5px 8px;
+    padding: 10px;
+    font-weight: 300;
+}
 .tab.current-Tab{
 
     background-color: rgba(219, 226, 239, 0.5);
     border-radius: 4px;
 
+}
+.Weather-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-block: 4rem;
+}
+.btn{
+    all: unset;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-color: var(--colorDark2);
+    color: white;
+    cursor: pointer;
+    padding: 10px 30px;
+    
+    
+}
+.btn:hover {
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+    transition: .5s ease;
+    
+}
+.sub-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grantAccessContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    display: none;
+    
+}
+.grantAccessContainer p{
+    font-weight: bolder;
+    font-size: 35px;
+    
+}
+.grantAccessContainer div{
+    letter-spacing: 0.5px;
+    font-weight: 100;
+}
+.grantAccessContainer.active{
+    display: flex;
+}
+.loading-container{
+    display: none;
+}
+.loading-container.active{
+    display: flex;
+}
+.loading-container p{
+    text-transform: uppercase;
+
+}
+.user-Info-container{
+    display: none;
+    
+}
+.user-Info-container.active{
+    display: flex;
+    gap: 25px;
+    width: 700px;
+    
+}
+
+.name{
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+.name p{
+    font-size:2rem;
+}
+.name img{
+    width: 40px;
+    height: 30px;
+}
+.Weather-discription{
+    font-size: larger;
+    font-weight: 600;
+}
+.WeatherIcon{
+    height:80px;
+    width: 80px;
+}
+.DataTemprature{
+    font-size: 60px;
+    font-weight: 600;
+    
+}
+.DataTemprature{
+    font-size: 900;
+    font-weight: 600;
+}
+.parameter-container{
+    display: flex;
+    gap: 30px;
+    
+}
+.parameter{
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+}
+.parameter img{
+    height: 60px;
+    width: 60px;
+}
+.parameter p{
+    font-size: 30px;
+}
+.form-container{
+    display: none;
+    width: 90%;
+    max-width:550px;
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+}
+ 
+.form-container.active{
+   display: flex;
+}
+
+
+.form-container input{
+    all: unset;
+    width: calc(100% - 80px);
+    height: 40px;
+    padding: 0 20px;
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 10px;
+    
+}
+.form-container input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+.form-container input:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+}
+.form-container button {
+    width: 3px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
 }

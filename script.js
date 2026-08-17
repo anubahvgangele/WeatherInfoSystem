@@ -1,12 +1,12 @@
-let userTab = document.querySelector("[data-UserWeather]");
-let searchTab = document.querySelector("[data-searchWeather]");
+const userTab = document.querySelector("[data-UserWeather]");
+const searchTab = document.querySelector("[data-searchWeather]");
 
 const userContainer = document.querySelector(".Weather-container");
 const searchForm = document.querySelector("[data-searchForm]");
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-Info-container");
 const  grantAccessContainer =
-    document.querySelector(".grantAccessContainer");
+document.querySelector(".grantAccessContainer");
 
 let currentTab = userTab;
 
@@ -18,10 +18,10 @@ getFromSessionStorage();
 
 function switchTab(clickTab){
 
-    if(clickTab != userTab){
-        userTab.classList.remove("current-Tab");
-        userTab = clickTab;
-        userTab.classList.add("current-Tab");
+    if(clickTab != currentTab){
+        currentTab.classList.remove("current-Tab");
+        currentTab = clickTab;
+        currentTab.classList.add("current-Tab");
 
         if(!searchTab.classList.contains("active")){
 
@@ -64,7 +64,7 @@ function getFromSessionStorage(){
         
     }
     else{
-        const coordinates = JSON.parse(localCoordinates);
+        const coordinates = localCoordinates? JSON.parse(localCoordinates) : null;
         
         fetchUserWeatherInfo(coordinates);
     }
@@ -87,20 +87,22 @@ async function fetchUserWeatherInfo(coordinates){
         const data = await response.json();
 
         loadingScreen.classList.remove("active");
-        if (data.cod !== 200) {
-            alert("City does not exist");
-            return;
-        }
         userInfoContainer.classList.add("active");
 
         RanDerWeatherInfo(data);
         
-         
+       
         }
+       
+         
+        
     
     catch(err){
 
         loadingScreen.classList.remove("active");
+
+        alert("Something went wrong. Please try again.");
+        console.error(err);
         
 
     }
@@ -131,7 +133,7 @@ function RanDerWeatherInfo(weatherInfo){
     CountryIcon.src = `https://flagcdn.com/48x36/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     Desc.innerText = weatherInfo?.weather?.[0]?.description;
     WeatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
-    temperature.innerText = weatherInfo?.main?.temp;
+    temperature.innerText = `${weatherInfo?.main?.temp} °C`;
     WindSpeed.innerText = weatherInfo?.wind?.speed;
     Humidity.innerText = weatherInfo?.main?.humidity;
     CloudsNess.innerText = weatherInfo?.clouds?.all;
@@ -187,7 +189,7 @@ async function fetchWeatherInfo(cityName){
         const data = await response.json();
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
-        RanDerWeatherInfo(data);    
+        RanDerWeatherInfo(data);
         }
     catch(error)
     {
