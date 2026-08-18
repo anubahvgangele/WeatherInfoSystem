@@ -207,3 +207,17 @@ h2{
     justify-content: center;
     border-radius: 100%;
 }
+.Error-Image img{
+    height: 150px;
+    width: 150px;
+    margin-top: 90px;
+}
+.Error-Image {
+    display: none;
+    
+}
+
+.Error-Image.active {
+    display: block;
+    
+}

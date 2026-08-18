@@ -30,12 +30,16 @@ function switchTab(clickTab){
         grantAccessContainer.classList.remove("active");
         
         searchForm.classList.add("active");
+
+        ErrorImage.classList.remove("active");
     }
     else{
         /* mai search tab par tha abb your weather visible  hai */
         searchForm.classList.remove("active");
 
         userInfoContainer.classList.remove("active");
+
+        ErrorImage.classList.remove("active");
 
         getFromSessionStorage();
 
@@ -175,7 +179,7 @@ searchForm.addEventListener("submit", (e) => {
     else
         fetchWeatherInfo(cityName);
 })
-
+const ErrorImage = document.querySelector(".Error-Image");
 async function fetchWeatherInfo(cityName){
 
     loadingScreen.classList.add("active");
@@ -186,14 +190,27 @@ async function fetchWeatherInfo(cityName){
         const  response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
         )
+         if (!response.ok) {
+            ErrorImage.classList.add("active");
+            loadingScreen.classList.remove("active");
+        }
+        else
+        {
         const data = await response.json();
+        ErrorImage.classList.remove("active");
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
         RanDerWeatherInfo(data);
         }
+       
+    }
+    
+    
     catch(error)
     {
-        error('Weather info not available');
+         
+        console.error('Weather info not available');
     }
+
 
 }
