@@ -23,11 +23,11 @@ function switchTab(clickTab){
         currentTab = clickTab;
         currentTab.classList.add("current-Tab");
 
-        if(!searchTab.classList.contains("active")){
+        if(!searchForm.classList.contains("active")){
 
-        userInfoContainer.classList.remove("remove");
+        userInfoContainer.classList.remove("active");
         
-        grantAccessContainer.classList.remove("remove");
+        grantAccessContainer.classList.remove("active");
         
         searchForm.classList.add("active");
     }
