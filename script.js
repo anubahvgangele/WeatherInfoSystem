@@ -190,9 +190,11 @@ async function fetchWeatherInfo(cityName){
         const  response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
         )
+        
          if (!response.ok) {
             ErrorImage.classList.add("active");
             loadingScreen.classList.remove("active");
+
         }
         else
         {
